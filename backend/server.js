@@ -1,26 +1,34 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var session = require('express-session');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const session = require('express-session');
+const passport = require('passport');
+const cors = require('cors');
 
 require('dotenv').config();
 require('./config/database');
 require('./config/passport');
 
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const app = express();
+const port = process.env.PORT || 3001;
 
-var app = express();
+// Testing the connection with React
+app.get('/api/test', (req, res) => {
+  res.json({ message: 'Backend link established successfully!' });
+});
 
-// Set up CORS middleware
+// Testing message
+app.get("/", function(req, res) {
+  res.send("Express here")
+});
+
+// Enable CORS for all routes during local development
 app.use(cors());
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -28,13 +36,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Establish port
+app.listen(port, () => {
+  console.log(`Express running on port ${port}`);
+});
+
 app.use(session({
   secret: process.env.SECRET,
   resave: false,
   saveUninitialized: true
 }));
 
-app.use(passport.initilize());
+app.use(passport.initialize());
 app.use(passport,session());
 
 app.use('/', indexRouter);
