@@ -61,5 +61,5 @@ const artworkSeedData = [
     },
   ];
   
-  module.exports = artworkData;
+  module.exports = artworkSeedData;
   
