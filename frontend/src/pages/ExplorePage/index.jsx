@@ -1,9 +1,11 @@
+import MapComponent from "../../components/MapComponent";
+
 const ExplorePage = () => {
     return (
         <>
-            <h1>ExplorePage coming soon</h1>
+            <MapComponent />
         </>
     )
 }
 
-export default ExplorePage
+export default ExplorePage;
