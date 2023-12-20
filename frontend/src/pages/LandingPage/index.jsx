@@ -4,9 +4,9 @@ const LandingPage = () => {
     return (
         <div>
             <h1>LandingPage</h1>
-            <Link to={"/login"}>Login</Link>
+            <Link to={"/auth"}>Login</Link>
         </div>
     )
 }
 
-export default LandingPage
+export default LandingPage;

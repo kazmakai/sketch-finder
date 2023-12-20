@@ -1,32 +1,34 @@
 import { useEffect, useState } from "react"
+import { Routes, Route } from "react-router-dom"
+import LandingPage from '../Page';
 import AuthPage from '../AuthPage';
 import ExplorePage from '../ExplorePage';
 import ProfilePage from '../ProfilePage';
+import Navbar from "../../components/NavBar";
 
 const App = () => {
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('/api/test');
-        const data = await response.json();
-        setMessage(data.message);
-      } catch (error) {
-        console.error('Error', error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
+  const [user, setUser] = useState(getUser)
   return (
     <main>
-      <h1>Coming Soon</h1>
-      <p>{message}</p>
-      
+      { user ?
+      <>
+        <Navbar user={user}/>
+        <Routes>
+          <Route path="/explore" element={<ExplorePage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+        </Routes>
+      </>
+      :
+      <>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path='/auth' element={<AuthPage setUser={setUser}/>}/>
+        </Routes>
+      </>
+      }
+
     </main>
   );
 }
 
-export default App
+export default App;
