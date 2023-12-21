@@ -1,5 +1,6 @@
 import MapComponent from "../../components/MapComponent";
 
+
 const ExplorePage = () => {
     return (
         <>

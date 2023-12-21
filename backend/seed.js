@@ -79,6 +79,17 @@ const Artwork = require('./models/artwork')
             description: 'Scenic landscape painting portraying tranquil natural scenes.',
         })
 
+        await artwork1.save();
+        await artwork2.save();
+        await artwork3.save();
+        await artwork4.save();
+        await artwork5.save();
+        await artwork6.save();
+        await artwork7.save();
+        await artwork8.save();
+        await artwork9.save();
+        await artwork10.save();
+
         // Location data
         const location1 = await Location.create({
             locationID: 'L1',
@@ -135,36 +146,4 @@ const Artwork = require('./models/artwork')
     };
 
     addLocationsArtworks();
-//   ];
 
-// const seedData = async () => {
-//     try {
-//       // Clear existing data
-//       await Location.deleteMany({});
-//       await Artwork.deleteMany({});
-  
-//       // Insert artwork data
-//       const artworks = new Artwork(artworkSeedData);
-  
-//       // Map artwork ids to location seed data
-//       const locationSeedDataWithArtworkIds = locationSeedData.map((location) => {
-//         const artworkIds = location.artwork; // Array of artwork IDs
-//         const locationData = {
-//           ...location,
-//           artwork: artworks.filter((artwork) => artworkIds.includes(artwork.ArtworkID)).map((art) => art._id),
-//         };
-//         return locationData;
-//       });
-  
-//       // Insert location data
-//       await Location.create(locationSeedDataWithArtworkIds);
-  
-//       console.log('Seed data inserted successfully.');
-//     //   process.exit();
-//     } catch (error) {
-//       console.error('Error inserting seed data:', error);
-//     //   process.exit(1);
-//     }
-//   };
-  
-//   seedData();

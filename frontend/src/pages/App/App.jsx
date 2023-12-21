@@ -1,18 +1,17 @@
 import { useEffect, useState } from "react"
 import { Routes, Route } from "react-router-dom"
-import LandingPage from '../AuthPage';
-import AuthPage from '../AuthPage';
 import ExplorePage from '../ExplorePage';
 import ProfilePage from '../ProfilePage';
-import Navbar from "../../components/NavBar";
+import ArtworkDetailPage from "../ArtworkDetailPage";
+import ArtworkListPage from "../ArtworkListPage";
 
 const App = () => {
   return (
     <main>
       <>
         <Routes>
-          <Route path="/explore" element={<ExplorePage />} />
-          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/" element={<ExplorePage />} />
+          <Route path="/artworklist/:id" element={<ArtworkListPage />} />
         </Routes>
       </>
     </main>

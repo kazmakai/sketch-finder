@@ -7,6 +7,7 @@ const session = require('express-session');
 const passport = require('passport');
 const cors = require('cors');
 
+
 require('dotenv').config();
 require('./config/database');
 require('./config/passport');
@@ -15,8 +16,9 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
 const app = express();
+app.use(cors());
 const port = process.env.PORT || 3001;
-app.use('/', require('./routes/locations'));
+app.use('/api/locations', require('./routes/locations.js'));
 
 // Testing the connection with React
 app.get('/api/test', (req, res) => {
@@ -27,9 +29,6 @@ app.get('/api/test', (req, res) => {
 app.get("/", function(req, res) {
   res.send("Express here")
 });
-
-// Enable CORS for all routes during local development
-app.use(cors());
 
 app.use(logger('dev'));
 app.use(express.json());
