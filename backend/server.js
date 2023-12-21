@@ -16,6 +16,7 @@ const usersRouter = require('./routes/users');
 
 const app = express();
 const port = process.env.PORT || 3001;
+app.use('/', require('./routes/locations'));
 
 // Testing the connection with React
 app.get('/api/test', (req, res) => {
