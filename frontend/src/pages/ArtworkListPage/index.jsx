@@ -29,8 +29,15 @@ const ArtworkListPage = () => {
 
 const Artwork = ({artwork}) => {
     return (
-        <div>
-            <img src={artwork.picture} />
+        <div className='container'>
+
+          <div className='text-container'>
+          <h2>{artwork.title}</h2>
+          <p>{artwork.description}</p>
+          </div>
+
+          <img src={artwork.picture} className='artwork'/>
+
         </div>
     )
 }

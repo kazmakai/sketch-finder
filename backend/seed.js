@@ -95,6 +95,7 @@ const Artwork = require('./models/artwork')
             locationID: 'L1',
             placeName: 'Location 1',
             address: 'Shibuya, Tokyo',
+            cover_photo: 'https://www.japan-guide.com/g18/3007_01.jpg',
             type: 'Gallery',
             // artwork: [artwork1._id, artwork2._id, artwork3._id, artwork4._id], // Array of artwork IDs
             longitude: 139.702770,

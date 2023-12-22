@@ -64,9 +64,9 @@ const MapComponent = () => {
       {loading ? (
         <p>Loading</p>
       ) : (
-        <div>
+        <div className="API-container">
           <APIProvider apiKey={import.meta.env.VITE_REACT_APP_GOOGLE_MAPS_API_KEY}>
-            <div style={{ height: "50vh" }}>
+            <div className="map-container">
               <Map
                 zoom={15}
                 center={position}
@@ -78,7 +78,6 @@ const MapComponent = () => {
               </Map>
             </div>
           </APIProvider>
-          <p>{locations[0].latitude}</p>
         </div>
       )}
     </div>

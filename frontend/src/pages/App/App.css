@@ -1,3 +1,78 @@
-@import 'tailwindcss/base';
+/* @import 'tailwindcss/base';
 @import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import 'tailwindcss/utilities'; */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* navbar -------------------------*/
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: black;
+    height: 100px;
+    padding: 2em;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 2em;
+}
+
+.page-links a {
+    font-size: 1em;
+    padding: 1em;
+}
+
+/* nav > a:first-child {
+    margin-right: auto;
+} */
+
+
+.API-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+    /* border: 5px solid blue; */
+
+}
+
+.map-container {
+    width: 900px;
+    height: 500px;
+    border: 2px solid grey;
+}
+
+
+
+/* ArtworkList Page --------------------------*/
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid blue; */
+
+}
+
+.text-container {
+    width: 500px;
+    margin: 25px 0;
+    /* border: 2px solid green; */
+}
+
+.artwork {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    margin-bottom: 200px;
+    /* border: 2px solid blue; */
+}
